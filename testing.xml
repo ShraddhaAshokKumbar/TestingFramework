@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<!-- TestNG suite configuration -->
+<suite name="MySuite" verbose="1" parallel="false">
+
+    <listeners>
+        <listener class-name="automation.listeners.TestListener" />
+    </listeners>
+
+    <!-- Test block -->
+    <test name="MyTest">
+
+        <!--        passing parameters as OS and windows-->
+        <!--        <parameter name="os" value="Windows" />-->
+<!--        <parameter name="browser" value="chrome"></parameter>-->
+
+
+        <classes>
+<!--            <class name="automation.tests.API.LoginTest"/>-->
+            <class name="automation.tests.UI.LoginUITest" />
+        </classes>
+
+    </test>
+
+
+
+</suite>
