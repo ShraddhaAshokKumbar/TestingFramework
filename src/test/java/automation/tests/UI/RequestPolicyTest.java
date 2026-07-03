@@ -12,8 +12,6 @@ public class RequestPolicyTest extends BaseTest {
     RequestPolicyPage rp= new RequestPolicyPage(driver);
 
 
-
-
     @Test
     public void request() {
         rp.clickPolicy();

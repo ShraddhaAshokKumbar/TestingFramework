@@ -14,7 +14,7 @@ import org.testng.annotations.BeforeSuite;
 
 public class BaseTest {
     private static final Logger logger = LogManager.getLogger(BaseTest.class);
-    protected WebDriver driver = driver = DriverFactory.getDriver();
+    protected WebDriver driver ;
 
     @BeforeMethod
     public void setUp() {
@@ -22,17 +22,18 @@ public class BaseTest {
         String url = ConfigReader.getProperty("baseUrl");
 
         logger.info("Initializing WebDriver for browser: {}", browser);
+
         DriverFactory.initDriver(browser);
 
+        driver = DriverFactory.getDriver();
 
         driver.manage().window().maximize();
 
         logger.info("Navigating to application target URL: {}", url);
         driver.get(url);
-        logger.debug("WebDriver initialized successfully and contextual focus synchronized.");
     }
 
-    @AfterMethod
+    @AfterSuite
     public void tearDown() {
         if (driver != null) {
             logger.info("Quitting target browser instance context safely via DriverFactory.");

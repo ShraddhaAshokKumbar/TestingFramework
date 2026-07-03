@@ -1,25 +1,17 @@
 package automation.runners;
 
-import io.cucumber.junit.Cucumber;
-
-import io.cucumber.junit.CucumberOptions;
-
-import org.junit.runner.RunWith;
-
-@RunWith(Cucumber.class)
+import io.cucumber.testng.AbstractTestNGCucumberTests;
+import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
-
         features = "src/test/resources/features",
-
-        glue = {"org.automation.stepdefinitions"}, // Pointing strictly to stepdefs & hooks package
-
-        plugin = {"pretty", "html:target/cucumber-reports.html"},
-
+        glue = "stepDefinitions",
+        plugin = {
+                "pretty",
+                "html:target/cucumber-reports/cucumber.html",
+                "json:target/cucumber-reports/cucumber.json"
+        },
         monochrome = true
-
 )
-
-public class TestRunner {
-
+public class TestRunner extends AbstractTestNGCucumberTests {
 }

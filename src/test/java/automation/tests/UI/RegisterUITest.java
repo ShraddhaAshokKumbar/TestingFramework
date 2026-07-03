@@ -17,7 +17,6 @@ public class RegisterUITest extends BaseTest {
         RegisterPage registerPage = new RegisterPage(driver);
 
 
-
         registerPage.ClickSignUpBtn();
         wait.until(ExpectedConditions.urlContains("/register"));
 
